@@ -2,8 +2,8 @@
 # This script is displaying "Best School" 10 times
 
 counter=1
-for (( i=0; i<10; i++ ));
+while [ $counter -lt 10 ]
 do
         echo "Best School"
-        ((i++))
+        ((counter++))
 done
