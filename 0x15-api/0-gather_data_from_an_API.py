@@ -28,8 +28,8 @@ if __name__ == "__main__":
     # Filter completed tasks and count them
     completed = []
     for todo in todos:
-        if todo.get("completed") is True
-        completed.append(todo.get("title"))
+        if todo.get("completed") is True:
+            completed.append(todo.get("title"))
 
     # Print the employee's name and the number of completed tasks
     print("Employee {} is done with tasks({}/{}):".format(
