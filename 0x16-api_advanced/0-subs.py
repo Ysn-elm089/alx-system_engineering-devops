@@ -2,17 +2,14 @@
 """ script to obtain subscribers
     count from a subreddit
 """
-from requests import get
-
+import requests
 
 def number_of_subscribers(subreddit):
-    """ function to get subscriber count"""
-    if subreddit and type(subreddit) is str:
-        subscribers = 0
-        url = 'https://reddit.com/r/{}/about.json'.format(subreddit)
-        headers = {'user-agent': 'my-app/0.0.1'}
-        req = get(url, headers=headers)
-        if req.status_code == 200:
-            data = req.json()
-            subscribers = data.get('data', {}).get('subscribers', 0)
-        return subscribers
+    url = f'https://www.reddit.com/r/{subreddit}/about.json'
+    headers = {'User-Agent': 'Custom User Agent'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code == 200:
+        data = response.json()
+        return data['data']['subscribers']
+    else:
+        return 0
